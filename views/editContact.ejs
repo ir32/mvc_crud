@@ -1,0 +1,18 @@
+<!-- editContact.ejs -->
+
+<h1>Edit Contact</h1>
+
+<form action="/contacts/update/<%= contact.id %>" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" value="<%= contact.name %>" required>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" value="<%= contact.email %>" required>
+
+  <label for="phone">Phone:</label>
+  <input type="text" id="phone" name="phone" value="<%= contact.phone %>" required>
+
+  <button type="submit">Update Contact</button>
+</form>
+
+<a href="/contacts/get_data">Back to Contact List</a>

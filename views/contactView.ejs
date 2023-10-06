@@ -1,0 +1,37 @@
+<!-- contactView.ejs -->
+
+<h1>Contact List</h1>
+<!-- Add Button -->
+<a href="/contacts/create">Add Contact</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% contacts.forEach(function(contact) { %>
+    <tr>
+      <td><%= contact.id %></td>
+      <td><%= contact.name %></td>
+      <td><%= contact.email %></td>
+      <td><%= contact.phone %></td>
+      <td>
+        <!-- Edit Button -->
+        <a href="/contacts/edit/<%= contact.id %>">Edit</a>
+        
+        <!-- Delete Button -->
+        <form action="/contacts/delete/<%= contact.id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this contact?');">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
